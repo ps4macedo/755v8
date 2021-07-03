@@ -1,7 +1,7 @@
 var ropchain_array = new Uint32Array(482118);
 var ropchain = read_ptr_at(addrof(ropchain_array)+0x10);
 
-alert("Na tentativa de ter mais sucesso no desbloqueio, você pode aguarde 2 minutos\nantes de clicar no botão \"OK\".(aqui pode ocorrer kp)");
+alert("\nNa tentativa de ter mais sucesso no desbloqueio, você pode aguarde 2 minutos\nantes de clicar no botão \"OK\". (aqui pode ocorrer kernel panic)");
 
 var ropchain_offset = 2;
 function set_gadget(val)
