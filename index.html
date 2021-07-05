@@ -197,7 +197,7 @@ input{
 		  left: 150;
 		  right: 150;
 		  margin: auto;
-		  opacity: 0.8;
+		  opacity: 0.7;
 		}
        #Progress {
 		  color: #ffffff;
@@ -341,15 +341,19 @@ input{
 				window.passCounter.innerHTML=localStorage.passcount;}
 				if (localStorage.failcount == null) {localStorage.failcount=0;
 				window.failCounter.innerHTML=localStorage.failcount;}
+				if (localStorage.desempenho == null) localStorage.desempenho="Ainda sem dados";
+				window.desempenho.innerHTML=localStorage.desempenho;
 				eval.call(window, scriptCode);
 				if (main_ret == 179 || main_ret == 0) {
 				done();
 				localStorage.passcount = ++localStorage.passcount;window.passCounter.innerHTML=localStorage.passcount;
 				window.failCounter.innerHTML=localStorage.failcount;
+				localStorage.desempenho=Math.round((parseInt(localStorage.passcount)/(parseInt(localStorage.passcount)+parseInt(localStorage.failcount)))*100); window.desempenho.innerHTML=localStorage.desempenho;
 				window.msgs.innerHTML="<h1 style='font-size:30px;'>Exploração do kernel concluída ✔<br><font style='color:#ee596f'>Pronto para as cargas úteis.</font>";
 				} else {
 				localStorage.failcount = ++localStorage.failcount;window.passCounter.innerHTML=localStorage.passcount;
 				window.failCounter.innerHTML=localStorage.failcount;
+				localStorage.desempenho=Math.round((parseInt(localStorage.passcount)/(parseInt(localStorage.passcount)+parseInt(localStorage.failcount)))*100); window.desempenho.innerHTML=localStorage.desempenho;
 				window.msgs.innerHTML="<h1 style='font-size:30px;'>A exploração falhou! Reinicie o PS4 e tente novamente.</h1>";
 				}
 			}, 100);
@@ -382,8 +386,7 @@ input{
 	<table id="load" align="center" style="width:1260px;margin-top:10px;"></table>
 	
 <div style="text-align:left;position:fixed;left:10px;bottom:10px;width:100%;font-size:20px;color:#ffffff">     	
-<div>Passou = <font color="#6089f6"><span id=passCounter></span></font>&nbsp;&nbsp;/&nbsp;&nbsp;Falhou = <font color="#ee596f"><span id=failCounter></span></font></div>
-Agradecimentos: <font color="#6089f6">Sleirsgoevy-SiSTRo-Karo-Leeful-TheFlow-Crono-Tecniqueza-e todos que participam da cena PS4.</font>
+<div>Passou = <font color="#6089f6"><span id=passCounter></span></font>&nbsp;&nbsp;/&nbsp;&nbsp;Falhou = <font color="#ee596f"><span id=failCounter></span></font>&nbsp;&nbsp;-&nbsp;&nbsp;Desempenho:&nbsp;<font color="#6089f6"><span id=desempenho></span>%</font></div>Sleirsgoevy-SiSTRo-Karo-Leeful-TheFlow-Crono-Tecniqueza-e todos que participam da cena PS4.</font>
 </div>
 
 </body>
